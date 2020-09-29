@@ -1,0 +1,55 @@
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 20%;
+  z-index: 1;
+  background-color: #212121;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  right: 0;
+}
+
+.sidebar-padding {
+  padding: 30px;
+}
+
+.Pofile-container {
+  height: 20%;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pro-pic{
+  width: 35%;
+  border-radius: 50%;
+}
+
+.pro-name{
+  margin-top: 0;
+}
+
+.section-title{
+  margin: 5px 0;
+  color: #4c4c4c;
+}
+
+.side-nav > ul{
+  padding: 0;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.side-nav li{
+  list-style: none;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.sidenav-active{
+  color: rgba(40, 0, 196, 0.7);
+}
+
+.filter-list > div{
+  margin-top: 5px;
+}

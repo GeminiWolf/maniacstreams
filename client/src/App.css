@@ -1,0 +1,20 @@
+/*     font-family: 'Roboto', sans-serif; */
+*{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.App {
+  background: #272727;
+  color: white;
+  font-family: Helvetica Neue, Helvetica, Arial;
+  margin: 0px;
+}
+
+.content {
+  width: 80%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  /* align-items: flex-end; */
+}

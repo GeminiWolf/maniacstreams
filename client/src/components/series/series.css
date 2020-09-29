@@ -1,0 +1,23 @@
+.series {
+  margin: 0;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+}
+
+.shows {
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 95%;
+}
+
+.blocks {
+  width: 7rem;
+  height: 10rem;
+  background-color: green;
+  margin: 10px;
+  padding: 5px 10px;
+}

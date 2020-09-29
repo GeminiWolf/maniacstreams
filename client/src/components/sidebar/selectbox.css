@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+.selectbox {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  background-color: rgb(25, 25, 25);
+  cursor: pointer;
+  /* display: inline-flexbox; */
+  justify-content: center;
+}
+
+.selectbox-open{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.selected-item {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  width: 84%;
+  padding: 1px 5px;
+  margin-bottom: 0;
+}
+
+.selected-item p{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.selectbox-items{
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(25, 25, 25);
+}
+
+.selectbox-items div {
+  position: relative;
+  width: 100%;
+  padding: 6px;
+  padding-left: 20px;
+  margin: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.selectbox-items div:hover{  
+  background-color: rgb(26, 26, 26);
+}
+
+.selected{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.selectbox-arrow {
+  width: 16%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  background: transparent;
+  border-left: none;
+  position: relative;
+  top: -4px;
+  right: 0px;
+}
+
+.arrowpoint-down {
+  position: relative;
+  top: 20px;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+.arrowpoint-up {
+  position: relative;
+  top: -10px;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
