@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path')
 const app = express();
-const port = process.env.PORT || 4000;
 
 // parser
 app.use(express.json())
@@ -41,5 +40,7 @@ if (process.env.NODE_ENV === 'production') {
         res.send(path.resolve(__dirname, 'moviemaniac', 'bulid', 'index.html'))
     })
 }
+
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`running on port ${port}`))
