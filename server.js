@@ -34,10 +34,10 @@ app.use((req, res) => {
 })
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('moviemaniac/build'))
+    app.use(express.static('client/build'))
 
     app.get("*", (req, res) => {
-        res.send(path.resolve(__dirname, 'moviemaniac', 'bulid', 'index.html'))
+        res.send(path.resolve(__dirname, 'client', 'bulid', 'index.html'))
     })
 }
 
