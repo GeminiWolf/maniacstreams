@@ -29,9 +29,9 @@ app.use(express.static('/img'));
 // app.use('/api/users', require(`${__dirname}/routes/users`))
 
 // 404
-app.use((req, res) => {
-    res.status(404).send('404')
-})
+// app.use((req, res) => {
+//     res.status(404).send('404')
+// })
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
