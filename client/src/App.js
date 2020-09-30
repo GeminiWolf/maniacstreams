@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Nav from "./components/nav/nav";
-import Home from "./components/home/home";
+import Trending from "./components/trending/trending";
 import Sidebar from "./components/sidebar/sidebar";
 
 class App extends Component {
@@ -25,6 +25,7 @@ class App extends Component {
           isloaded: true,
           shows: [...json.results],
         })
+        console.log(json.results);
       });
   }
 
@@ -48,7 +49,6 @@ class App extends Component {
             shows: [...res.results],
           })
         }
-        console.log(res.results);
       })
   }
 
@@ -67,7 +67,7 @@ class App extends Component {
         <Nav handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <Sidebar />
         <div className="content">
-          <Home loaded={isloaded} searched={searched} shows={shows} />
+          <Trending loaded={isloaded} searched={searched} shows={shows} />
         </div>
       </div>
     );

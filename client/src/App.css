@@ -7,11 +7,13 @@
   background: #272727;
   color: white;
   font-family: Helvetica Neue, Helvetica, Arial;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .content {
   width: 80%;
+  overflow-y: hidden;
   height: 100vh;
   padding: 0;
   margin: 0;

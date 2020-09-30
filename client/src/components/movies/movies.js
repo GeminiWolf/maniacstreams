@@ -3,25 +3,14 @@ import "./movies.css";
 import Slider from "../slider/slider";
 
 export default class Movies extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isloaded: false,
+      movies: [],
+    }
+  }
   render() {
-    let data = [
-      "pain",
-      "pool",
-      "car",
-      "sleep",
-      "brain",
-      "rain",
-      "mountain",
-      "thor",
-      "loki",
-      "iron man",
-      "spiderman",
-      "hulk",
-      "steve",
-      "rogers",
-      "banner",
-    ];
-
     return (
       <div className="movies">
         <div>
