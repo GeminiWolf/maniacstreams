@@ -29,15 +29,26 @@ class App extends Component {
   }
 
   handleSubmit = (e) => {
+
     e.preventDefault();
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.term}`)
       .then(res => res.json())
       .then(res => {
-        this.setState({
-          isloaded: true,
-          searched: this.state.term,
-          shows: [...res.results],
-        })
+        if (res.results.length === 0) {
+          this.setState({
+            isloaded: false,
+            searched: this.state.term,
+            shows: [],
+          })
+        }
+        else {
+          this.setState({
+            isloaded: true,
+            searched: this.state.term,
+            shows: [...res.results],
+          })
+        }
+        console.log(res.results);
       })
   }
 
