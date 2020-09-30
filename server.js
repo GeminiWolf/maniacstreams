@@ -11,22 +11,22 @@ app.use(express.urlencoded({
 app.use(express.static('/img'));
 
 // home
-app.use('/api/home', require(`${__dirname}/routes/home`))
+// app.use('/api/home', require(`${__dirname}/routes/home`))
 
 // shows
-app.use('/api', require(`${__dirname}/routes/shows`))
+// app.use('/api', require(`${__dirname}/routes/shows`))
 
 // register
-app.use('/api/register', require(`${__dirname}/routes/register`))
+// app.use('/api/register', require(`${__dirname}/routes/register`))
 
 // login
-app.use('/api/login', require(`${__dirname}/routes/login`))
+// app.use('/api/login', require(`${__dirname}/routes/login`))
 
 // user domain
-app.use('/api/mydomain', require(`${__dirname}/routes/mydomain`))
+// app.use('/api/mydomain', require(`${__dirname}/routes/mydomain`))
 
 // users
-app.use('/api/users', require(`${__dirname}/routes/users`))
+// app.use('/api/users', require(`${__dirname}/routes/users`))
 
 // 404
 app.use((req, res) => {
