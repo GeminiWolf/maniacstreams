@@ -1,14 +1,15 @@
 import React from "react";
+import Bar from '../progressbar/progressbar'
 import "./trending.css";
 
 const Trending = (props) => {
-
   if (!props.loaded) {
     return <div className="nothing">Nothing to show...</div>
   }
   else {
     return (
       <div className="trending">
+        {console.log(props)}
         <div>
           <h2 className="results-title" style={{ display: props.searched ? "block" : "none" }}>Showing results for... {props.searched}</h2>
         </div>
@@ -20,11 +21,21 @@ const Trending = (props) => {
                   <div className="dummy-images imagePoster">
                     <img
                       src={`https://image.tmdb.org/t/p/original${shows.poster_path}`}
-                      alt={shows.title} className="poster"
+                      alt={shows.title ? shows.title : shows.name} className="poster"
                     />
+                      <div className='rating-bar'>
+                        <Bar rate={shows.vote_average*10} />
+                      </div>
                   </div>
                   <div className="dummy-images imageOverview">
-                    <p className="overv">{shows.overview}</p>
+                    <div className="over-cont">
+                      <div className='over-cont-title'>
+                        {shows.title ? shows.title : shows.name}
+                      </div>
+                      <div className='over-cont-overview'>
+                        {shows.overview}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

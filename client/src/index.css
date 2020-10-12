@@ -1,3 +1,9 @@
+:root {
+  --main-bg-color: #212529;
+  --sec-bg-color: #6c757d;
+  --main-text-color: #e9ecef;
+}
+
 body {
   margin: 0;
   padding: 0;

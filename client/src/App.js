@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "./App.css";
-import Nav from "./components/nav/nav";
+import Nav from './components/nav/nav';
 import Trending from "./components/trending/trending";
-import Sidebar from "./components/sidebar/sidebar";
+
 
 class App extends Component {
   constructor() {
@@ -52,23 +53,19 @@ class App extends Component {
       })
   }
 
-  handleChange = (e) => {
-    this.setState({
-      term: e.target.value,
-    })
-  }
-
   render() {
-
     const { isloaded, shows, searched } = this.state;
-
     return (
       <div className="App">
-        <Nav handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-        <Sidebar />
-        <div className="content">
-          <Trending loaded={isloaded} searched={searched} shows={shows} />
-        </div>
+        <Router>
+          <Nav handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+          <div className='content'>
+            <Switch>
+              <Route exact path={'/'} component={() => <Trending loaded={isloaded} searched={searched} shows={shows} />} />
+              <Route  path={'/trending'} component={() => <Trending loaded={isloaded} searched={searched} shows={shows} />} />
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }

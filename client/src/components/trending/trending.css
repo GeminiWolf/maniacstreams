@@ -1,39 +1,39 @@
-.nothing{
+.nothing {
+  position: relative;
   align-self: center;
   justify-self: center;
   text-align: center;
   width: 95%;
 }
 
-.results-title{
+.results-title {
+  position: relative;
   padding: 30px;
   margin: 0;
 }
 
 .trending {
+  position: relative;
   align-self: flex-end;
   width: 95%;
-  height: 90%;
-  /* margin: 65px auto 0; */
-  overflow-y: scroll;
   scrollbar-width: 2px;
 }
 
 .dummy-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
 }
 
-.higher-flip{
-  perspective: 100%;
+.higher-flip {
+  position: relative;
+  /* perspective: 100%; */
 }
 
-.flip{
+.flip {
   position: relative;
-  width: 200px;
-  height: 300px;
   margin-left: auto;
   margin-right: auto;
   transition: transform 0.6s;
@@ -41,44 +41,74 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 200px;
+  height: 300px;
 }
 
-.higher-flip:hover .flip{
+.higher-flip:hover .flip {
   transform: rotateY(180deg);
 }
 
 .dummy-images {
-  margin: 0 20px;
-  padding: 30px 0 5px;
+  position: relative;
+  margin: 30px 20px 10px 25px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
-.imagePoster, .imageOverview{
+.imagePoster,
+.imageOverview {
   position: absolute;
-  width: 200px;
-  height: 300px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  width: 200px;
+  height: 250px;
 }
 
-.imageOverview{
+.imageOverview {
   transform: rotateY(180deg);
-  background-color: rgb(100, 100, 100);
+  background-color: var(--sec-bg-color);
 }
 
-.poster{
+.poster {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
-.overv{
-  width: 100%;
-  height: 75%;
-  overflow-y: hidden;
-  padding: 0;
-  margin: 0;
+.rating-bar {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 10px;
+  left: 10px;
 }
 
-.show-title{
+.over-cont {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  text-align: left;
+}
+
+.over-cont-title {
+  width: 80%;
+  height: 15%;
+  padding: 10px;
+  padding-bottom: 0;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.over-cont-overview {
+  width: 80%;
+  height: 70%;
+  /* padding: 10px; */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.show-title {
   padding: 0;
   margin: 0 0 5px;
   width: 250px;
