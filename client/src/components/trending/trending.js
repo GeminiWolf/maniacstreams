@@ -4,12 +4,11 @@ import "./trending.css";
 
 const Trending = (props) => {
   if (!props.loaded) {
-    return <div className="nothing">Nothing to show...</div>
+    return <div className="nothing"><div>Nothing to show...</div></div>
   }
   else {
     return (
       <div className="trending">
-        {console.log(props)}
         <div>
           <h2 className="results-title" style={{ display: props.searched ? "block" : "none" }}>Showing results for... {props.searched}</h2>
         </div>
@@ -23,9 +22,9 @@ const Trending = (props) => {
                       src={`https://image.tmdb.org/t/p/original${shows.poster_path}`}
                       alt={shows.title ? shows.title : shows.name} className="poster"
                     />
-                      <div className='rating-bar'>
-                        <Bar rate={shows.vote_average*10} />
-                      </div>
+                    <div className='rating-bar'>
+                      <Bar rate={shows.vote_average * 10} />
+                    </div>
                   </div>
                   <div className="dummy-images imageOverview">
                     <div className="over-cont">

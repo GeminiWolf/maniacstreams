@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="246" height="269" viewBox="0 0 246 269">
   <g id="Search-ico" transform="translate(-170 -114)">
     <rect id="Rectangle_4" data-name="Rectangle 4" width="246" height="269" transform="translate(170 114)" fill="none"/>
-    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(180 133)" fill="none" stroke="#f5f5f5" stroke-width="25">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(180 133)" fill="none" stroke="#e9ecef" stroke-width="25">
       <circle cx="100" cy="100" r="100" stroke="none"/>
       <circle cx="100" cy="100" r="87.5" fill="none"/>
     </g>
-    <line id="Line_1" data-name="Line 1" x1="60" y1="60" transform="translate(343.5 297.5)" fill="none" stroke="#f5f5f5" stroke-width="25"/>
+    <line id="Line_1" data-name="Line 1" x1="60" y1="60" transform="translate(343.5 297.5)" fill="none" stroke="#e9ecef" stroke-width="25"/>
   </g>
 </svg>

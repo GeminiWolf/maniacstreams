@@ -1,6 +1,6 @@
 .series {
-  margin: 0;
-  height: 100vh;
+  padding: 0 var(--side-space);
+  padding-top: var(--nav-height);
 }
 
 h1 {
@@ -8,16 +8,21 @@ h1 {
 }
 
 .shows {
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 0 1rem;
-  width: 95%;
+  width: 100%;
+}
+
+.shows-block-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: brown;
 }
 
 .blocks {
-  width: 7rem;
-  height: 10rem;
+  width: 15%;
+  height: 225px;
   background-color: green;
   margin: 10px;
-  padding: 5px 10px;
+  margin: 5px 0;
+  margin-right: 30px;
 }

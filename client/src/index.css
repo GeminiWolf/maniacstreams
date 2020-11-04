@@ -2,6 +2,12 @@
   --main-bg-color: #212529;
   --sec-bg-color: #6c757d;
   --main-text-color: #e9ecef;
+  --nav-height: 60px;
+  --side-space: 75px
+}
+
+li{
+  list-style: none;
 }
 
 body {
