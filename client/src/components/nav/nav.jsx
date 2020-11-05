@@ -17,6 +17,11 @@ const Nav = (props) => {
     }
   }
 
+  const onPickNav = (s) => {
+    setActive(s)
+    setOpen(false)
+  }
+
   return (
     <div className={`nav-container ${isNavBack ? 'nav-change' : ''}`} onScroll={onNavChange}>
       <div
@@ -35,7 +40,7 @@ const Nav = (props) => {
           <Link to="/" className='left-margin nav-mobile'>
             <li
               className={`nav-links left-margin ${isActive === 'trending' ? 'nav-active' : ''}`}
-              onClick={() => setActive('trending')}
+              onClick={() => onPickNav('trending')}
             >
               TRENDING
             </li>
@@ -43,19 +48,19 @@ const Nav = (props) => {
           <Link to="/series" className='nav-mobile' onClick={() => setOpen(!isOpen)}>
             <li
               className={`nav-links ${isActive === 'series' ? 'nav-active' : ''}`}
-              onClick={() => setActive('series')}
+              onClick={() => onPickNav('series')}
             >
               SERIES
             </li>
           </Link>
-          {/* <Link to="/watching" className='nav-mobile' onClick={() => setOpen(!isOpen)}> */}
-          <li
-            className={`nav-links ${isActive === 'watching' ? 'nav-active' : ''}`}
-            onClick={() => setActive('watching')}
-          >
-            WATCHING
+          <Link to="/watching" className='nav-mobile' onClick={() => setOpen(!isOpen)}>
+            <li
+              className={`nav-links ${isActive === 'watching' ? 'nav-active' : ''}`}
+              onClick={() => onPickNav('watching')}
+            >
+              WATCHING
             </li>
-          {/* </Link> */}
+          </Link>
           <div className='search-container'>
             <form action="" className="search-form" onSubmit={props.handleSubmit}>
               <input placeholder="Search" type="text" onChange={props.handleChange} />
@@ -69,11 +74,11 @@ const Nav = (props) => {
         </ul>
       </div>
       <Link to='/profile' style={{ marginTop: 'auto', marginBottom: 'auto' }} >
-        <div className="profile-nav-container" onClick={() => setActive('profile')}>
+        <div className="profile-nav-container" onClick={() => onPickNav('profile')}>
           <img src={require(`../../img/profile2.svg`)} alt="" className="profile-nav-btn" />
         </div>
       </Link>
-    </div>
+    </div >
   );
 }
 
