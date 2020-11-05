@@ -1,5 +1,6 @@
 import React from 'react';
 import './watching.css';
+import playbtn from '../../img/play.svg'
 
 const watching = () => {
     return (
@@ -9,7 +10,7 @@ const watching = () => {
                 <div className="watching-window-movie">
                     <div className="watching-window-movie-screen"></div>
                     <div className="watching-window-movie-play">
-                        <img className='watching-window-movie-play-btn' src={require(`../../img/play.svg`)} alt="play" />
+                        <img className='watching-window-movie-play-btn' src={playbtn} alt="play" />
                     </div>
                 </div>
                 <div className="watching-movie-info">

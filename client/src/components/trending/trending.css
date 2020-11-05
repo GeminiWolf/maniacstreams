@@ -15,6 +15,7 @@
 }
 
 .trending {
+  margin-top: var(--nav-height);
   position: relative;
   align-self: flex-end;
   width: 100%;
@@ -23,20 +24,17 @@
 
 .trending-shows-container {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  margin: 0 -19.5px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 12px;
 }
 
 .trending-shows{
   width: 200px;
-  margin: 10px 19.5px;
 }
 
 .trending-shows-images-container {
   position: relative;
-  margin: 30px 20px 10px 25px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 

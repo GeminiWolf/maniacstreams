@@ -2,6 +2,7 @@
   background-color: #272727;
   padding: 0 var(--side-space);
   padding-top: var(--nav-height);
+  width: 100%;
 }
 
 .name {
@@ -13,20 +14,20 @@
   font-size: 18px;
 }
 
-.series-container {
+/* .series-container {
   margin: 0 auto;
-}
+} */
 
 .watch-blocks {
-  background-color: teal;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 30px;
   width: 100%;
-  flex-wrap: wrap;
 }
 
 .series-block {
   background-color: brown;
   height: 200px;
   width: 150px;
-  margin: 20px;
+  /* margin: 20px; */
 }

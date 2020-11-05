@@ -12,7 +12,7 @@ const Bar = (props) => {
                 // Customize the path, i.e. the "completed progress"
                 path: {
                     // Path color
-                    stroke: `rgba(21, 43, 102, ${props.rate / 100})`,
+                    stroke: `rgba(33, 37, 41, ${props.rate / 100})`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -27,13 +27,13 @@ const Bar = (props) => {
                 // Customize the text
                 text: {
                     // Text color
-                    fill: 'var(--sec-bg-color)',
+                    fill: 'var(--main-text-color)',
                     // Text size
                     fontSize: '30px',
                 },
                 // Customize background - only used when the `background` prop is true
                 background: {
-                    fill: '#3e98c7',
+                    fill: 'var(--main-bg-color',
                 },
             }}
         />

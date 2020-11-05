@@ -31,12 +31,17 @@ const Movies = () => {
           <div className="movies-shows-cent">
             {data.map((value) =>
               <div key={value.id} className="movies-shows-blocks">
-                <img alt='poster' src={`https://image.tmdb.org/t/p/original${value.poster_path}`} className='movies-show-blocks-img' />
+                <div>
+                  <img alt='poster' src={`https://image.tmdb.org/t/p/original${value.poster_path}`} className='movies-show-blocks-img' />
+                </div>
+                <div>
+                  <h5 className='movies-show-blocks-title' >{value.title} ({value.release_date.substr(0, 4)})</h5>
+                </div>
               </div>
             )}
           </div>
         </div>
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
           <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }} onClick={() => prevPage()}>{page === 1 ? '' : 'Prev'}</span>
           <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page === 1 ? '' : page - 1}</span>
           <span style={{ color: "teal", fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page}</span>

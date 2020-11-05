@@ -24,17 +24,18 @@
 }
 
 .watching-window-movie-screen{
-    width: 850px;
+    position: relative;
+    width: 90%;
     height: 90%;
     background-color: black;
 }
 
 .watching-window-movie-play{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 150px;
-    left: 350px;
+    width: 20%;
+    height: 20%;
+    top: 34%;
+    left: 34%;
     cursor: pointer;
 }
 

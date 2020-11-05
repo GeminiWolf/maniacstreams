@@ -2,24 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./series.css";
 
-// let data = [
-//   "pain",
-//   "pool",
-//   "car",
-//   "sleep",
-//   "brain",
-//   "rain",
-//   "mountain",
-//   "thor",
-//   "loki",
-//   "iron man",
-//   "spiderman",
-//   "hulk",
-//   "steve",
-//   "rogers",
-//   "banner",
-// ];
-
 const Series = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1)
@@ -48,12 +30,17 @@ const Series = () => {
           <div className="series-shows-cent">
             {data.map((value) =>
               <div key={value.id} className="series-shows-blocks">
-                <img alt='poster' src={`https://image.tmdb.org/t/p/original${value.poster_path}`} className='series-show-blocks-img' />
+                <div>
+                  <img alt='poster' src={`https://image.tmdb.org/t/p/original${value.poster_path}`} className='series-show-blocks-img' />
+                </div>
+                <div>
+                  <h5 className='series-show-blocks-title' >{value.name} ({value.first_air_date.substr(0, 4)})</h5>
+                </div>
               </div>
             )}
           </div>
         </div>
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
           <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }} onClick={() => prevPage()}>{page === 1 ? '' : 'Prev'}</span>
           <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page === 1 ? '' : page - 1}</span>
           <span style={{ color: "teal", fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page}</span>
