@@ -1,28 +1,31 @@
-.series {
-  padding: 0 var(--side-space);
-  padding-top: var(--nav-height);
-}
-
-h1 {
-  margin: 0;
-}
-
-.shows {
+.series{
   width: 100%;
+  padding-right: var(--side-space);
+  padding-left: var(--side-space);
 }
 
-.shows-block-container{
+.series-shows-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.series-shows-cent{
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  background-color: brown;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
-.blocks {
-  width: 15%;
-  height: 225px;
-  background-color: green;
-  margin: 10px;
-  margin: 5px 0;
-  margin-right: 30px;
+.series-shows-blocks{
+  background-color: burlywood;
+  width: 150px;
+  height: 200px;
+  margin: 10.5px;
+  float: left;
+}
+
+.series-show-blocks-img{
+  height: 100%;
+  width: 100%;
 }

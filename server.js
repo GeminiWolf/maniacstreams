@@ -11,7 +11,7 @@ app.use(express.urlencoded({
 app.use(express.static('/img'));
 
 // home
-app.use('/api', require(`${__dirname}/routes/trending`))
+app.use('/api', require(`${__dirname}/routes/api`))
 
 
 if (process.env.NODE_ENV === 'production') {

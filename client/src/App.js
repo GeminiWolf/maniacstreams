@@ -6,6 +6,8 @@ import Trending from "./components/trending/trending";
 import Profile from "./components/profile/profile.jsx";
 import Series from "./components/series/series.jsx";
 import Watching from './components/watching/watching.jsx';
+import Movies from "./components/movies/movies";
+import Search from "./components/search/search";
 
 import axios from 'axios';
 
@@ -32,26 +34,39 @@ class App extends Component {
       });
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.term}`)
-      .then(res => res.json())
-      .then(res => {
-        if (res.results.length() === 0) {
-          this.setState({
-            isloaded: false,
-            searched: this.state.term,
-            shows: [],
-          })
-        }
-        else {
-          this.setState({
-            isloaded: true,
-            searched: this.state.term,
-            shows: [...res.results],
-          })
-        }
-      })
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.term}`)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       if (res.results.length() === 0) {
+  //         this.setState({
+  //           isloaded: false,
+  //           searched: this.state.term,
+  //           shows: [],
+  //         })
+  //       }
+  //       else {
+  //         this.setState({
+  //           isloaded: true,
+  //           searched: this.state.term,
+  //           shows: [...res.results],
+  //         })
+  //       }
+  //     })
+  // }
+
+  handleChange = (e) => {
+    this.setState({
+      term: e.target.value
+    })
+    // console.log(e.target.value)
+  }
+
+  handleSubmit = () => {
+    this.setState({
+      searched: this.state.term
+    })
   }
 
   render() {
@@ -62,10 +77,12 @@ class App extends Component {
           <Nav handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           <div className='content'>
             <Switch>
-              <Route exact path={'/'} component={() => <Trending loaded={isloaded} searched={searched} shows={shows} />} />
+              <Route exact path={'/'} component={() => <Trending loaded={isloaded} shows={shows} />} />
               <Route path={'/profile'} component={Profile} />
+              <Route path={'/movies'} component={Movies} />
               <Route path={'/series'} component={Series} />
               <Route path={'/watching'} component={Watching} />
+              <Route path={'/search'} component={() => <Search search={searched} />} />
             </Switch>
           </div>
         </Router>

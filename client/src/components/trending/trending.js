@@ -12,33 +12,19 @@ const Trending = (props) => {
         <div>
           <h2 className="results-title" style={{ display: props.searched ? "block" : "none" }}>Showing results for... {props.searched}</h2>
         </div>
-        <div className="dummy-container">
+        <div className="trending-shows-container">
           {props.shows.map(shows => (
-            <div key={shows.id}>
-              <div className="higher-flip">
-                <div className="flip">
-                  <div className="dummy-images imagePoster">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${shows.poster_path}`}
-                      alt={shows.title ? shows.title : shows.name} className="poster"
-                    />
-                    <div className='rating-bar'>
-                      <Bar rate={shows.vote_average * 10} />
-                    </div>
-                  </div>
-                  <div className="dummy-images imageOverview">
-                    <div className="over-cont">
-                      <div className='over-cont-title'>
-                        {shows.title ? shows.title : shows.name}
-                      </div>
-                      <div className='over-cont-overview'>
-                        {shows.overview}
-                      </div>
-                    </div>
-                  </div>
+            <div key={shows.id} className='trending-shows'>
+              <div className="trending-shows-images">
+                <img
+                  src={`https://image.tmdb.org/t/p/original${shows.poster_path}`}
+                  alt={shows.title ? shows.title : shows.name} className="trending-shows-images-poster"
+                />
+                <div className='rating-bar'>
+                  <Bar rate={shows.vote_average * 10} />
                 </div>
               </div>
-              <p className="show-title">
+              <p className="trending-shows-images-title">
                 {shows.title ? shows.title : shows.name}<br /> {shows.release_date ? shows.release_date.substr(0, 4) : shows.first_air_date.substr(0, 4)}
               </p>
             </div>

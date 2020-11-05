@@ -42,7 +42,7 @@
 }
 
 .img-logo {
-  margin: auto 0 auto 20px;
+  margin: auto 0 auto var(--side-space);
   position: relative;
   display: flex;
   width: 20%;
@@ -142,17 +142,22 @@
   width: 10%;
   height: 25px;
   margin: auto 0;
-  margin-right: 20px;
+  margin-right: var(--side-space);
 }
 
 .profile-nav-btn{
   height: 100%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 770px) {
   .nav-hamburger{
     padding-left: 20px;
     display: block;
+  }
+
+  .img-logo{
+    margin-left: 20px;
   }
 
   .left-margin{
@@ -194,6 +199,10 @@
   .search-form{
     margin: 0;
     width: 100%;
+  }
+
+  .profile-nav-container{
+    margin-right: 20px;
   }
 
 }

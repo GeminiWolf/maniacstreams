@@ -1,37 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./movies.css";
-import Slider from "../slider/slider";
+import axios from "axios";
 
 const Movies = () => {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    axios.get(`api/movies/${page}`)
+      .then(res => {
+        setData(res.data)
+      });
+  }, [page]);
+
+  function nextPage() {
+    window.scrollTo(0, 0)
+    setPage(page + 1)
+  }
+
+  function prevPage() {
+    window.scrollTo(0, 0)
+    setPage(page + 1)
+  }
 
   return (
     <div className="movies">
       <div>
         <h1>Movies</h1>
-        <div className="shows">
-          <h3>Featured</h3>
-          <Slider>
-            {data.map((value) => {
-              return (
-                <div key={value} className="blocks">
-                  {value}
-                </div>
-              );
-            })}
-          </Slider>
+        <div className="movies-shows-container">
+          <div className="movies-shows-cent">
+            {data.map((value) =>
+              <div key={value.id} className="movies-shows-blocks">
+                <img alt='poster' src={`https://image.tmdb.org/t/p/original${value.poster_path}`} className='movies-show-blocks-img' />
+              </div>
+            )}
+          </div>
         </div>
-        <div className="shows">
-          <h3>Latest</h3>
-          <Slider>
-            {data.map((value) => {
-              return (
-                <div key={value} className="blocks">
-                  {value}
-                </div>
-              );
-            })}
-          </Slider>
+        <div>
+          <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }} onClick={() => prevPage()}>{page === 1 ? '' : 'Prev'}</span>
+          <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page === 1 ? '' : page - 1}</span>
+          <span style={{ color: "teal", fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page}</span>
+          <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }}>{page + 1}</span>
+          <span style={{ fontSize: 25, cursor: 'pointer', marginRight: 10 }} onClick={() => nextPage()}>Next</span>
         </div>
       </div>
     </div>

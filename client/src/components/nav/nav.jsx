@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import "./nav.css";
 import searchbtn from "../../img/Search-ico.svg";
 
@@ -45,6 +47,14 @@ const Nav = (props) => {
               TRENDING
             </li>
           </Link>
+          <Link to="/movies" className='nav-mobile' onClick={() => setOpen(!isOpen)}>
+            <li
+              className={`nav-links ${isActive === 'movies' ? 'nav-active' : ''}`}
+              onClick={() => onPickNav('movies')}
+            >
+              MOVIES
+            </li>
+          </Link>
           <Link to="/series" className='nav-mobile' onClick={() => setOpen(!isOpen)}>
             <li
               className={`nav-links ${isActive === 'series' ? 'nav-active' : ''}`}
@@ -62,12 +72,10 @@ const Nav = (props) => {
             </li>
           </Link>
           <div className='search-container'>
-            <form action="" className="search-form" onSubmit={props.handleSubmit}>
-              <input placeholder="Search" type="text" onChange={props.handleChange} />
+            <form className="search-form" onSubmit={props.handleSubmit}>
+              <input placeholder="Search" type="text" name='search' onChange={props.handleChange} />
               <button type="submit">
-                <Link>
-                  <img className="search-ico" alt="s" src={searchbtn} />
-                </Link>
+                <img className="search-ico" alt="s" src={searchbtn} onClick={() => setOpen(!isOpen)} />
               </button>
             </form>
           </div>
@@ -75,7 +83,8 @@ const Nav = (props) => {
       </div>
       <Link to='/profile' style={{ marginTop: 'auto', marginBottom: 'auto' }} >
         <div className="profile-nav-container" onClick={() => onPickNav('profile')}>
-          <img src={require(`../../img/profile2.svg`)} alt="" className="profile-nav-btn" />
+          {/* <img src={require('../../img/profile2.svg')} alt="p" className="profile-nav-btn" /> */}
+          <FontAwesomeIcon icon={faUser} className="profile-nav-btn" size='5x' />
         </div>
       </Link>
     </div >
