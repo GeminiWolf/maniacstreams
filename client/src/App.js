@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {
       isloaded: false,
       shows: [],
+      searchRes: [],
       term: "",
       msg: "",
       searched: "",
@@ -57,13 +58,14 @@ class App extends Component {
   // }
 
   handleChange = (e) => {
+    console.log(e.target.value)
     this.setState({
       term: e.target.value
     })
-    // console.log(e.target.value)
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    console.log(e.target.value)
     this.setState({
       searched: this.state.term
     })
@@ -77,12 +79,17 @@ class App extends Component {
           <Nav handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           <div className='content'>
             <Switch>
-              <Route exact path={'/'} component={() => <Trending loaded={isloaded} shows={shows} />} />
-              <Route path={'/profile'} component={Profile} />
-              <Route path={'/movies'} component={Movies} />
-              <Route path={'/series'} component={Series} />
-              <Route path={'/watching'} component={Watching} />
-              <Route path={'/search'} component={() => <Search search={searched} />} />
+              {searched.length > 0 ?
+                <Search search={searched} />
+                :
+                <>
+                  <Route exact path={'/'} component={() => <Trending loaded={isloaded} shows={shows} />} />
+                  <Route path={'/profile'} component={Profile} />
+                  <Route path={'/movies'} component={Movies} />
+                  <Route path={'/series'} component={Series} />
+                  <Route path={'/watching'} component={Watching} />
+                </>
+              }
             </Switch>
           </div>
         </Router>

@@ -9,7 +9,7 @@ const Search = ({ search }) => {
     const [page, setPage] = useState([1]);
 
     useEffect(() => {
-        Axios.get(`/mulsearch/${search}/${page}`)
+        Axios.get(`https://localhost:4000/api/search/${search}/${page}`)
             .then(res => {
                 setResults(res.data)
                 setFound(true)

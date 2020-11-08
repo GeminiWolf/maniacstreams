@@ -10,7 +10,7 @@
 
 .movies-shows-cent{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: auto auto auto auto auto auto auto auto;
     gap: 10px;
 }
 
@@ -29,7 +29,21 @@
 
 @media only screen and (max-width: 770px){
     .movies{
-        padding-right: 25px;
-        padding-left: 25px;
+      padding: 0 20px;
     }
+    
+  .movies-shows-cent{
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 440px){
+
+  .movies{
+    padding: 0 20px;
+  }
+
+  .movies-shows-cent{
+    grid-template-columns: auto auto;
+  }
 }

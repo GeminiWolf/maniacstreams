@@ -28,12 +28,11 @@ router.get('/series/:page', (req, res) => {
 });
 
 // search
-router.get('/mulsearch/:searchTerm/:page', (req, res) => {
-    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_MOVIEAPI}&language=en-US&page=${req.params.searchTerm}`)
+router.get('/search/:searchTerm/:page', (req, res) => {
     fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIEAPI}&query=${req.params.searchTerm}&page=${req.params.page}&include_adult=false`)
         .then(json => json.json())
         .then(data => { res.json(data.results) })
-        .catch(err => console.log(err))
+        .catch(err => res.json(err))
 });
 
 
