@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./series.css";
 
-const Series = () => {
+const Series = (props) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1)
 

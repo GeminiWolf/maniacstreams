@@ -29,7 +29,7 @@ router.get('/series/:page', (req, res) => {
 
 // search
 router.get('/search/:searchTerm/:page', (req, res) => {
-    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIEAPI}&query=${req.params.searchTerm}&page=${req.params.page}&include_adult=false`)
+    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIEAPI}&query=${req.params.searchTerm}&page=${req.params.page}`)
         .then(json => json.json())
         .then(data => { res.json(data.results) })
         .catch(err => res.json(err))

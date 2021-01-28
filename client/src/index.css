@@ -3,7 +3,8 @@
   --sec-bg-color: #6c757d;
   --main-text-color: #e9ecef;
   --nav-height: 60px;
-  --side-space: 75px
+  --side-space: 75px;
+  background-color: #212529;
 }
 
 li{
@@ -23,4 +24,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.pagination-container{
+  margin: 0 auto;
 }

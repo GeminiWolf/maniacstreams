@@ -12,6 +12,7 @@ app.use(express.static('/img'));
 
 // home
 app.use('/api', require(`${__dirname}/routes/api`))
+app.use('/search/api', require(`${__dirname}/routes/api`))
 
 
 if (process.env.NODE_ENV === 'production') {

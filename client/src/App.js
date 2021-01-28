@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import "./App.css";
 import Nav from './components/nav/nav.jsx';
-import Trending from "./components/trending/trending";
-import Profile from "./components/profile/profile.jsx";
-import Series from "./components/series/series.jsx";
-import Watching from './components/watching/watching.jsx';
-import Movies from "./components/movies/movies";
-import Search from "./components/search/search";
+import Trending from "./pages/trending/trending";
+import Profile from "./pages/profile/profile.jsx";
+import Series from "./pages/series/series.jsx";
+import Watching from './pages/watching/watching.jsx';
+import Movies from "./pages/movies/movies";
+import Search from "./pages/search/search";
 
 import axios from 'axios';
 
@@ -17,13 +17,14 @@ class App extends Component {
     this.state = {
       isloaded: false,
       shows: [],
-      searchRes: [],
+      searchRes: false,
       term: "",
       msg: "",
       searched: "",
     }
     this.apikey = process.env.REACT_APP_MOVIEAPI
   }
+
 
   componentDidMount = () => {
     axios.get('/api/trending')
@@ -35,41 +36,22 @@ class App extends Component {
       });
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apikey}&query=${this.state.term}`)
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       if (res.results.length() === 0) {
-  //         this.setState({
-  //           isloaded: false,
-  //           searched: this.state.term,
-  //           shows: [],
-  //         })
-  //       }
-  //       else {
-  //         this.setState({
-  //           isloaded: true,
-  //           searched: this.state.term,
-  //           shows: [...res.results],
-  //         })
-  //       }
-  //     })
+  // handleChange = (e) => {
+  //   console.log(e.target.value)
+  //   this.setState({
+  //     searched: e.target.value
+  //   })
   // }
 
-  handleChange = (e) => {
-    console.log(e.target.value)
-    this.setState({
-      term: e.target.value
-    })
-  }
-
-  handleSubmit = (e) => {
-    console.log(e.target.value)
-    this.setState({
-      searched: this.state.term
-    })
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // this.setState({
+  //   //   term: e.target.value
+  //   // })
+  //   console.log(this.state.searched)
+  //   // return <Redirect to='/search' />
+  //   props.his
+  // }
 
   render() {
     const { isloaded, shows, searched } = this.state;
@@ -79,17 +61,12 @@ class App extends Component {
           <Nav handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           <div className='content'>
             <Switch>
-              {searched.length > 0 ?
-                <Search search={searched} />
-                :
-                <>
-                  <Route exact path={'/'} component={() => <Trending loaded={isloaded} shows={shows} />} />
-                  <Route path={'/profile'} component={Profile} />
-                  <Route path={'/movies'} component={Movies} />
-                  <Route path={'/series'} component={Series} />
-                  <Route path={'/watching'} component={Watching} />
-                </>
-              }
+              <Route exact path={'/'} component={() => <Trending loaded={isloaded} shows={shows} />} />
+              <Route path={'/profile'} component={Profile} />
+              <Route path={'/movies'} component={Movies} />
+              <Route path={'/series'} component={Series} />
+              <Route path={'/watching'} component={Watching} />
+              <Route path={'/search/:search'} component={() => <Search />} />
             </Switch>
           </div>
         </Router>

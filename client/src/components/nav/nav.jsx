@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory, } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import "./nav.css";
 import searchbtn from "../../img/Search-ico.svg";
+// import Search from "../search/search";
 
 const Nav = (props) => {
   const [isNavBack, setNavBack] = useState(false);
   const [isActive, setActive] = useState('trending');
+  const [isSearch, setIsSearch] = useState('');
   const [isOpen, setOpen] = useState(false)
+
+  let history = useHistory()
 
   const onNavChange = () => {
     if (window.scrollY > 10) {
@@ -22,6 +26,15 @@ const Nav = (props) => {
   const onPickNav = (s) => {
     setActive(s)
     setOpen(false)
+  }
+
+  const searchange = (e) => {
+    setIsSearch(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push(`/search/${isSearch}`)
   }
 
   return (
@@ -65,21 +78,21 @@ const Nav = (props) => {
           </Link>
           <Link to="/watching" className='nav-mobile' onClick={() => setOpen(!isOpen)}>
             <li
-              className={`nav-links ${isActive === 'watching' ? 'nav-active' : ''}`}
+              className={`nav-links  ${isActive === 'watching' ? 'nav-active' : ''}`}
               onClick={() => onPickNav('watching')}
             >
               WATCHING
             </li>
           </Link>
-          <div className='search-container'>
-            <form className="search-form" onSubmit={props.handleSubmit}>
-              <input placeholder="Search" type="text" name='search' onChange={props.handleChange} />
-              <button type="submit">
-                <img className="search-ico" alt="s" src={searchbtn} onClick={() => setOpen(!isOpen)} />
-              </button>
-            </form>
-          </div>
         </ul>
+      </div>
+      <div onSubmit={handleSubmit} style={{ marginTop: 'auto', marginBottom: 'auto', }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: "row", alignSelf: 'center', backgroundColor: 'lightgrey', padding: 2, borderRadius: 50 }}>
+          <input name='terms' type="text" placeholder='Search...' onChange={searchange} className='nav-searh-input' />
+          <button className='nav-search-button' type='submit' >
+            <img className="nav-search-ico" alt="s" src={searchbtn} />
+          </button>
+        </form>
       </div>
       <Link to='/profile' style={{ marginTop: 'auto', marginBottom: 'auto' }} >
         <div className="profile-nav-container" onClick={() => onPickNav('profile')}>
