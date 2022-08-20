@@ -3,6 +3,7 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import "./nav.css";
+import MenuIcon from "@mui/icons-material/Menu";
 import searchbtn from "../../img/Search-ico.svg";
 // import Search from "../search/search";
 import {
@@ -19,6 +20,7 @@ import {
 	Drawer,
 	Button,
 	InputBase,
+	Menu,
 } from "@mui/material";
 import { ThemeProvider, styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -48,7 +50,11 @@ const Nav = (props) => {
 			<Divider />
 			<List>
 				{navItems.map((item) => (
-					<ListItem key={item} disablePadding>
+					<ListItem
+						key={item}
+						disablePadding
+						onClick={() => history.push(item === "trending" ? "/" : item)}
+					>
 						<ListItemButton sx={{ textAlign: "center" }}>
 							<ListItemText primary={item} />
 						</ListItemButton>
@@ -70,7 +76,7 @@ const Nav = (props) => {
 							onClick={handleDrawerToggle}
 							sx={{ mr: 2, display: { sm: "none" } }}
 						>
-							BurgerIcon
+							<MenuIcon />
 						</IconButton>
 						<Typography variant="h6" component="div">
 							ManiacStreams
@@ -98,7 +104,12 @@ const Nav = (props) => {
 								inputProps={{ "aria-label": "search" }}
 							/>
 						</Search>
-						<Button color="textColorPrimary">register/login</Button>
+						<Button
+							sx={{ display: { xs: "none", sm: "block" } }}
+							color="textColorPrimary"
+						>
+							register/login
+						</Button>
 					</Toolbar>
 				</AppBar>
 				<Box component="nav">
