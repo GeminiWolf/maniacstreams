@@ -15,11 +15,11 @@
 }
 
 .trending {
-  margin-top: var(--nav-height);
+  margin-bottom: var(--nav-height);
   position: relative;
   align-self: flex-end;
   width: 100%;
-  padding: 0 var(--side-space);
+  padding: 0;
 }
 
 .trending-shows-container {
@@ -27,6 +27,7 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   gap: 40px;
+  padding: 0 var(--side-space);
 }
 
 .trending-shows{

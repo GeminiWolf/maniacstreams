@@ -1,41 +1,89 @@
 import React from "react";
-import Bar from '../../components/progressbar/progressbar'
+import { format } from "date-fns";
+import Bar from "../../components/progressbar/progressbar";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import "./trending.css";
+import { HeroManiac } from "../../components";
 
 const Trending = (props) => {
-  if (!props.loaded) {
-    return <div className="nothing"><div>Nothing to show...</div></div>
-  }
-  else {
-    return (
-      <div className="trending">
-        <div className="trending-shows-container">
-          {props.shows.map(shows => (
-            <div key={shows.id} className='trending-shows'>
-              <div className="trending-shows-images">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${shows.poster_path}`}
-                  onError={
-                    (ev) => ev.target.src = 'https://www.diotron.co.za/wp-content/uploads/2020/01/placeholder.png'
-                  }
-                  alt={shows.title ? shows.title : shows.name} className="trending-shows-images-poster"
-                />
-                <div className='rating-bar'>
-                  <Bar rate={shows.vote_average * 10} />
-                </div>
-              </div>
-              <p className="trending-shows-images-title">
-                {shows.title ? shows.title : shows.name}
-                <br />
-                {shows.release_date ? shows.release_date.substring(0, 4) : null}
-                {shows.first_air_date ? shows.first_air_date.substring(0, 4) : null}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-}
+	if (!props.loaded) {
+		return (
+			<div className="nothing">
+				<div>Nothing to show...</div>
+			</div>
+		);
+	} else {
+		return (
+			<Box className="trending">
+				<HeroManiac />
+				<Grid
+					container
+					columns={{ base: 1, xs: 2, sm: 4, md: 6, lg: 6 }}
+					spacing={2}
+					minHeight="50vh"
+				>
+					{props.shows.map((show) => (
+						<Grid key={show.id} item xs={1} minHeight="250px" display="block">
+							<Box width="167px" m="auto">
+								<img
+									src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}
+									onError={(ev) =>
+										(ev.target.src =
+											"https://www.diotron.co.za/wp-content/uploads/2020/01/placeholder.png")
+									}
+									alt={show.title ? show.title : show.name}
+									height="250px"
+									width="100%"
+								/>
+								<Typography>{show.title ? show.title : show.name}</Typography>
+								<Typography>
+									{show.release_date
+										? format(new Date(show.release_date), "yyyy")
+										: null}
+									{show.first_air_date
+										? format(new Date(show.first_air_date), "yyyy")
+										: null}
+								</Typography>
+							</Box>
+						</Grid>
+					))}
+				</Grid>
+			</Box>
+		);
+	}
+};
 
 export default Trending;
+
+{
+	/* <Box className="trending-shows-container">
+					{props.shows.map((shows) => (
+						<Box key={shows.id} className="trending-shows">
+							<Box className="trending-shows-images">
+								<img
+									src={`https://image.tmdb.org/t/p/original${shows.poster_path}`}
+									onError={(ev) =>
+										(ev.target.src =
+											"https://www.diotron.co.za/wp-content/uploads/2020/01/placeholder.png")
+									}
+									alt={shows.title ? shows.title : shows.name}
+									className="trending-shows-images-poster"
+								/>
+								<Box className="rating-bar">
+									<Bar rate={(shows.vote_average * 10).toFixed(0)} />
+								</Box>
+							</Box>
+							<p className="trending-shows-images-title">
+								{shows.title ? shows.title : shows.name}
+								<br />
+								{shows.release_date
+									? format(new Date(shows.release_date), "yyyy")
+									: null}
+								{shows.first_air_date
+									? format(new Date(shows.first_air_date), "yyyy")
+									: null}
+							</p>
+						</Box>
+					))}
+				</Box> */
+}
