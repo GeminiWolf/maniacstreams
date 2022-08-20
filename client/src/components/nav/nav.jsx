@@ -83,6 +83,7 @@ const Nav = (props) => {
 									key={item}
 									color="textColorPrimary"
 									sx={{ color: "#fff" }}
+									onClick={() => history.push(item === "trending" ? "/" : item)}
 								>
 									{item}
 								</Button>
