@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 import "./nav.css";
 import MenuIcon from "@mui/icons-material/Menu";
-import searchbtn from "../../img/Search-ico.svg";
-// import Search from "../search/search";
+import { AccountCircleRounded } from "@mui/icons-material";
 import {
 	Box,
 	Typography,
@@ -20,7 +17,6 @@ import {
 	Drawer,
 	Button,
 	InputBase,
-	Menu,
 } from "@mui/material";
 import { ThemeProvider, styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -30,7 +26,8 @@ const navItems = ["trending", "movies", "series", "watching"];
 
 const Nav = (props) => {
 	const [mobileOpen, setMobileOpen] = useState(false);
-	const {} = NavThemes;
+	const [changeColor, setChangeColor] = useState(false);
+
 	let history = useHistory();
 
 	const { window } = props;
@@ -39,8 +36,21 @@ const Nav = (props) => {
 		setMobileOpen(!mobileOpen);
 	};
 
+	const changeNavColor = () => {
+		if (window.scrollY >= 90) {
+			setChangeColor(true);
+		} else {
+			setChangeColor(false);
+		}
+	};
+
 	const container =
 		window !== undefined ? () => window().document.body : undefined;
+
+	if (typeof window !== "undefined") {
+		console.log("halloo");
+		window.addEventListener("scroll", changeNavColor);
+	}
 
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -67,7 +77,7 @@ const Nav = (props) => {
 	return (
 		<ThemeProvider theme={NavThemes}>
 			<>
-				<AppBar component="nav" color="primary">
+				<AppBar component="nav" color={changeColor ? "primary" : "transparent"}>
 					<Toolbar>
 						<IconButton
 							color="inherit"
@@ -104,8 +114,12 @@ const Nav = (props) => {
 								inputProps={{ "aria-label": "search" }}
 							/>
 						</Search>
+						<AccountCircleRounded
+							sx={{ display: { sm: "block", md: "none" } }}
+							color="textColorPrimary"
+						/>
 						<Button
-							sx={{ display: { xs: "none", sm: "block" } }}
+							sx={{ display: { xs: "none", md: "block" } }}
 							color="textColorPrimary"
 						>
 							register/login
