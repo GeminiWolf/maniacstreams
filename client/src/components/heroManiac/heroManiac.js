@@ -51,7 +51,7 @@ function HeroManiac() {
 				spacing={2}
 			>
 				<Typography fontWeight={700} fontSize={35}>
-					{show.original_title}
+					{show.title ? show.title : show.name}
 				</Typography>
 				<Typography>
 					<Star />
