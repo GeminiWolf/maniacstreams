@@ -22,7 +22,7 @@ import { ThemeProvider, styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavThemes } from "../themes/index";
 
-const navItems = ["trending", "movies", "series", "watching"];
+const navItems = ["trending", "movies", "series"];
 
 const Nav = (props) => {
 	const [mobileOpen, setMobileOpen] = useState(false);
@@ -70,6 +70,14 @@ const Nav = (props) => {
 						</ListItemButton>
 					</ListItem>
 				))}
+				<ListItem
+					disablePadding
+					onClick={() => history.push("watching/361743")}
+				>
+					<ListItemButton sx={{ textAlign: "center" }}>
+						<ListItemText primary={"WATCHING"} />
+					</ListItemButton>
+				</ListItem>
 			</List>
 		</Box>
 	);
@@ -104,6 +112,13 @@ const Nav = (props) => {
 									{item}
 								</Button>
 							))}
+							<Button
+								color="textColorPrimary"
+								sx={{ color: "#fff" }}
+								onClick={() => history.push("watching/361743")}
+							>
+								WATCHING
+							</Button>
 						</Box>
 						<Search>
 							<SearchIconWrapper>
