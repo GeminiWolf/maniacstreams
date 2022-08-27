@@ -5,15 +5,15 @@ import axios from "axios";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
 const Watching = () => {
-	const { id } = useParams();
+	const { id, type } = useParams();
 	const [showDetails, setShowDetails] = useState(null);
 
 	useLayoutEffect(() => {
-		axios.get(`/api/watching/movie/${id}`).then((res) => {
+		axios.get(`/api/watching/${type}/${id}`).then((res) => {
 			setShowDetails(res.data);
 			console.log("movie top gun", res.data);
 		});
-	}, [id]);
+	}, [id, type]);
 
 	if (!showDetails) return null;
 

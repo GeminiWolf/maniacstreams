@@ -1,11 +1,14 @@
 import React from "react";
 import { format } from "date-fns";
 import Bar from "../../components/progressbar/progressbar";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import "./trending.css";
 import { HeroManiac } from "../../components";
+import { useHistory } from "react-router-dom";
 
 const Trending = (props) => {
+	const { push } = useHistory();
+
 	if (!props.loaded) {
 		return (
 			<div className="nothing">
@@ -24,18 +27,25 @@ const Trending = (props) => {
 				>
 					{props.shows.map((show) => (
 						<Grid key={show.id} item xs={1} minHeight="250px" display="block">
-							<Box width="167px" m="auto">
+							<Box
+								onClick={() => push(`watching/${show.media_type}/${show.id}`)}
+								width="167px"
+								m="auto"
+							>
 								<img
 									src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}
 									onError={(ev) =>
 										(ev.target.src =
 											"https://www.diotron.co.za/wp-content/uploads/2020/01/placeholder.png")
 									}
+									style={{ borderRadius: "8px" }}
 									alt={show.title ? show.title : show.name}
 									height="250px"
 									width="100%"
 								/>
-								<Typography>{show.title ? show.title : show.name}</Typography>
+								<Typography noWrap>
+									{show.title ? show.title : show.name}
+								</Typography>
 								<Typography>
 									{show.release_date
 										? format(new Date(show.release_date), "yyyy")

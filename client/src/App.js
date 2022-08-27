@@ -77,7 +77,7 @@ class App extends Component {
 							<Route path={"/profile"} component={Profile} />
 							<Route path={"/movies"} component={Movies} />
 							<Route path={"/series"} component={Series} />
-							<Route path={"/watching/:id"} component={Watching} />
+							<Route path={"/watching/:type/:id"} component={Watching} />
 							<Route path={"/search/:search"} component={() => <Search />} />
 						</Switch>
 					</div>
