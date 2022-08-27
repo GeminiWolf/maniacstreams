@@ -70,14 +70,14 @@ const Nav = (props) => {
 						</ListItemButton>
 					</ListItem>
 				))}
-				<ListItem
+				{/* <ListItem
 					disablePadding
 					onClick={() => history.push("watching/361743")}
 				>
 					<ListItemButton sx={{ textAlign: "center" }}>
 						<ListItemText primary={"WATCHING"} />
 					</ListItemButton>
-				</ListItem>
+				</ListItem> */}
 			</List>
 		</Box>
 	);
@@ -112,13 +112,13 @@ const Nav = (props) => {
 									{item}
 								</Button>
 							))}
-							<Button
+							{/* <Button
 								color="textColorPrimary"
 								sx={{ color: "#fff" }}
 								onClick={() => history.push("watching/361743")}
 							>
 								WATCHING
-							</Button>
+							</Button> */}
 						</Box>
 						<Search>
 							<SearchIconWrapper>
