@@ -59,12 +59,15 @@ function HeroManiac() {
 				</Typography>
 				<Typography width="50%">{show.overview}</Typography>
 				<Button
-					variant="outlined"
+					variant="contained"
 					sx={{
 						width: "150px",
-						color: "rgba(33,37,41,1)",
+						backgroundColor: "rgba(33,37,41,1)",
 						borderColor: "rgba(33,37,41,1)",
 						borderRadius: 35,
+						":hover": {
+							backgroundColor: "f5f5f5",
+						},
 					}}
 					size="medium"
 				>
