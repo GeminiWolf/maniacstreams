@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import "./movies.css";
 import axios from "axios";
 
@@ -47,6 +47,23 @@ const Movies = () => {
 						</Grid>
 					))}
 				</Grid>
+				<Stack my={2} spacing={1} direction="row" justifyContent="center">
+					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
+						{page === 1 ? "" : "Prev"}
+					</Typography>
+					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
+						{page === 1 ? "" : page - 1}
+					</Typography>
+					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
+						{page}
+					</Typography>
+					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
+						{page + 1}
+					</Typography>
+					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
+						Next
+					</Typography>
+				</Stack>
 			</Box>
 		</div>
 	);
