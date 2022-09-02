@@ -47,16 +47,35 @@ const Movies = () => {
 						</Grid>
 					))}
 				</Grid>
-				<Stack my={2} spacing={1} direction="row" justifyContent="center">
+				<Stack
+					my={2}
+					spacing={1}
+					direction="row"
+					alignItems="center"
+					justifyContent="center"
+				>
 					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
 						{page === 1 ? "" : "Prev"}
 					</Typography>
 					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
 						{page === 1 ? "" : page - 1}
 					</Typography>
-					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
-						{page}
-					</Typography>
+					<Box
+						alignItems="center"
+						justifyContent="center"
+						display="flex"
+						sx={{
+							cursor: "pointer",
+							backgroundColor: "#555",
+							width: "25px",
+							height: "25px",
+							borderRadius: 1,
+						}}
+					>
+						<Typography fontSize={20} textAlign="center" alignSelf="center">
+							{page}
+						</Typography>
+					</Box>
 					<Typography fontSize={20} sx={{ cursor: "pointer" }}>
 						{page + 1}
 					</Typography>
