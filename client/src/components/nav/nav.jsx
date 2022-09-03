@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./nav.css";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -51,6 +51,13 @@ const Nav = (props) => {
 		console.log("halloo");
 		window.addEventListener("scroll", changeNavColor);
 	}
+
+	// useEffect(() => {
+	// 	window.addEventListener("scroll", changeNavColor);
+	// 	return () => {
+	// 		window.removeEventListener("scroll", changeNavColor);
+	// 	};
+	// }, []);
 
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
