@@ -28,7 +28,7 @@ const Trending = (props) => {
 					{props.shows.map((show) => (
 						<Grid key={show.id} item xs={1} minHeight="250px" display="block">
 							<Box
-								onClick={() => push(`watching/${show.media_type}/${show.id}`)}
+								onClick={() => push(`/watching/${show.media_type}/${show.id}`)}
 								sx={{ cursor: "pointer" }}
 								width="167px"
 								m="auto"
