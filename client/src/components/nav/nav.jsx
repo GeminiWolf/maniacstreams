@@ -63,7 +63,7 @@ const Nav = (props) => {
 					<ListItem
 						key={item}
 						disablePadding
-						onClick={() => history.push(item === "trending" ? "/" : item)}
+						onClick={() => history.push(item === "trending" ? "/" : `/${item}`)}
 					>
 						<ListItemButton sx={{ textAlign: "center" }}>
 							<ListItemText primary={item} />
@@ -107,7 +107,9 @@ const Nav = (props) => {
 									key={item}
 									color="textColorPrimary"
 									sx={{ color: "#fff" }}
-									onClick={() => history.push(item === "trending" ? "/" : item)}
+									onClick={() =>
+										history.push(item === "trending" ? "/" : `/${item}`)
+									}
 								>
 									{item}
 								</Button>
