@@ -14,7 +14,7 @@
   "author": "GeminiWolf",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^1.6.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
